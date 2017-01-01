@@ -18,16 +18,17 @@ public class Main {
 
         try {
             Configuration config = new Configuration();
-            String root = config.get("fs.root");
-            String path = config.get("fs.path");
+            String fsRoot = config.get("fs.root");
+            String fsPath = config.get("fs.path");
+            String wsPath = config.get("ws.path");
             int port = Integer.parseInt(config.get("http.port"));
             HttpServer server = HttpServer.create(new InetSocketAddress(port), 0);
             //Main Handler
             server.createContext("/", new HttpHandler());
             //Service Handler
-            server.createContext("/ws/", new ServiceHandler());
+            server.createContext("/" + wsPath + "/", new ServiceHandler());
             //File Handler
-            server.createContext("/" + path + "/", new FileHandler(root, path));
+            server.createContext("/" + fsPath + "/", new FileHandler(fsRoot, fsPath));
             server.start();
             Log.d("Server Start at port : " + port);
         } catch (Exception e) {

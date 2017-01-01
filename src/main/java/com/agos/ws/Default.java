@@ -3,11 +3,9 @@ package com.agos.ws;
 
 import com.agos.model.business.base.BConfiguration;
 import com.agos.model.entities.base.Configuration;
-import com.agos.util.Log;
 import com.agos.ws.annotations.HttpGet;
 import com.agos.ws.annotations.Method;
 import com.agos.ws.annotations.Path;
-import com.sun.org.glassfish.gmbal.ManagedData;
 
 import java.util.ArrayList;
 import java.util.List;
