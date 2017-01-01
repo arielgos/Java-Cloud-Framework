@@ -12,10 +12,7 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Method {
+public @interface HttpPost {
 
-    String name() default "default";
-
-    String uri() default "/";
-
+    String name() default "";
 }

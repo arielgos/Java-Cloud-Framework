@@ -35,7 +35,6 @@ public class ServiceHandler implements com.sun.net.httpserver.HttpHandler {
             Log.d("Service Loaded : " + serviceClass.getName());
             try {
                 Method serviceMethod = serviceClass.getMethod(method);
-                serviceMethod.getAnnotations();
                 Log.d("Method Loaded : " + serviceMethod.getName());
                 String response = new Gson().toJson(serviceMethod.invoke(serviceClass.newInstance()));
                 Log.d(response);

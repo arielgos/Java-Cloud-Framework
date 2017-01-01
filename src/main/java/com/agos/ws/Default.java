@@ -4,6 +4,7 @@ package com.agos.ws;
 import com.agos.model.business.base.BConfiguration;
 import com.agos.model.entities.base.Configuration;
 import com.agos.util.Log;
+import com.agos.ws.annotations.HttpGet;
 import com.agos.ws.annotations.Method;
 import com.agos.ws.annotations.Path;
 import com.sun.org.glassfish.gmbal.ManagedData;
@@ -14,10 +15,11 @@ import java.util.List;
 /**
  * Created by newuser on 12/31/16.
  */
-@Path
+@Path(uri = "default/")
 public class Default extends WebService {
 
-    @Method
+    @HttpGet
+    @Method(uri = "value")
     public List<Configuration> getValue() {
         BConfiguration bc = null;
         try {
@@ -31,7 +33,8 @@ public class Default extends WebService {
         return new ArrayList<Configuration>();
     }
 
-    @Method
+    @HttpGet
+    @Method(uri = "value/{id}")
     public Configuration getValue(long id) {
         BConfiguration bc = null;
         try {
